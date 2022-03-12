@@ -7,7 +7,7 @@
                         <div class="flex items-center justify-between">
                             <span class="text-base md:text-lg font-semibold">{{__(Str::title($group))}}</span>
                             <div :class="selected == {{$loop->iteration}} ? 'transform rotate-180' : 'transform rotate-0'">
-                                <x-carbon-chevron-down class="w-4 h-4"/>
+                                <x-bx-chevron-down class="w-4 h-4"/>
                             </div>
                         </div>
                     </button>

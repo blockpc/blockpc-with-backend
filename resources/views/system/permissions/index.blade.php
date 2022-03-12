@@ -6,7 +6,7 @@
 <div class="bg-dark overflow-hidden shadow-sm sm:rounded-lg px-1">
     <div class="py-4 bg-dark border-b border-gray-200 dark:border-gray-600 flex justify-between items-center">
         <div class="flex space-x-2 items-center">
-            <x-carbon-tag-group class="w-6 h-6" />
+            <x-bx-label class="w-6 h-6" />
             <span>{{__('Permissions')}}</span>
         </div>
         <div class=""></div>

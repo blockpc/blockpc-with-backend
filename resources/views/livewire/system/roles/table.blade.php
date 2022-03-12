@@ -8,7 +8,7 @@
                     <p class="text-sm">{!! $error !!}.</p>
                 </div>
                 <button type="button" class="btn-sm" onclick="closeAlert('alert-message-delete-error')">
-                    <x-carbon-close class="w-5 h-5" />
+                    <x-bx-x class="w-5 h-5" />
                 </button>
             </div>
         </div>
@@ -18,7 +18,7 @@
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     @if ( $search )
                     <button type="button" wire:click="clean" class="text-red-700 hover:text-red-800 dark:text-red-300 dark:hover:text-red-400 font-bold">
-                        <x-carbon-close class="w-4 h-4" />
+                        <x-bx-x class="w-4 h-4" />
                     </button>
                     @else
                     <span class="dark:text-gray-200 text-gray-700 sm:text-sm cursor-default">
@@ -40,11 +40,11 @@
             @if ( isset($roles_deleted) && $auth->can('role delete') )
                 @if(!$roles_deleted)
                     <button wire:click="eliminated" type="button" class="btn-sm btn-danger flex fles-row items-center m-0 space-x-2 h-8">
-                        <x-carbon-trash-can class="w-4 h-4" />
+                        <x-bx-trash class="w-4 h-4" />
                     </button>
                     @else
                     <button wire:click="eliminated" type="button" class="btn-sm btn-success flex fles-row items-center m-0 space-x-2 h-8">
-                        <x-carbon-checkmark-outline class="w-4 h-4" />
+                        <x-bx-check class="w-4 h-4" />
                     </button>
                     @endif
                 @endif

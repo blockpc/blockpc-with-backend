@@ -18,11 +18,11 @@
                 <span class="flex-none">{{ $slot }}</span>
                 <span>
                     @if ( $direction === 'asc')
-                        <x-carbon-arrow-down class="h-3 w-3" />
+                        <x-heroicon-o-arrow-narrow-down class="h-3 w-3" />
                     @elseif ( $direction === 'desc')
-                        <x-carbon-arrow-up class="h-3 w-3" />
+                        <x-heroicon-o-arrow-narrow-up class="h-3 w-3" />
                     @else
-                        <x-carbon-arrows class="h-3 w-3 opacity-25 group-hover:opacity-100 transition-opacity duration-300" />
+                        <x-heroicon-o-switch-vertical class="h-3 w-3 opacity-25 group-hover:opacity-100 transition-opacity duration-300" />
                     @endif
                 </span>
             </div>

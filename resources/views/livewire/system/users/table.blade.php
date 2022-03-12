@@ -38,11 +38,11 @@
             @if ( isset($users_deleted) && $auth->can('user delete') )
                 @if(!$users_deleted)
                 <button wire:click="eliminated" type="button" class="btn-sm btn-danger flex fles-row items-center m-0 space-x-2 h-8">
-                    <x-carbon-trash-can class="w-4 h-4" />
+                    <x-bx-trash class="w-4 h-4" />
                 </button>
                 @else
                 <button wire:click="eliminated" type="button" class="btn-sm btn-success flex fles-row items-center m-0 space-x-2 h-8">
-                    <x-carbon-checkmark-outline class="w-4 h-4" />
+                    <x-bx-check class="w-4 h-4" />
                 </button>
                 @endif
             @endif

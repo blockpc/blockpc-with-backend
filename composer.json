@@ -9,7 +9,6 @@
         "blade-ui-kit/blade-heroicons": "^1.3",
         "blade-ui-kit/blade-icons": "^1.2",
         "christophrumpel/missing-livewire-assertions": "^0.4.0",
-        "codeat3/blade-carbon-icons": "^2.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "intervention/image": "^2.7",

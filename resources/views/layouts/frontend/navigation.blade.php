@@ -22,10 +22,10 @@
             <div class="flex space-x-4">
                 <div class="px-2 h-16 flex">
                     <button type="button" x-on:click="mode=false" x-show="mode" class="setMode" id="sun">
-                        <x-carbon-sun class="h-5 w-5 text-yellow-300" />
+                        <x-bx-sun class="h-5 w-5 text-yellow-300" />
                     </button>
                     <button type="button" x-on:click="mode=true" x-show="!mode" class="setMode" id="dark">
-                        <x-carbon-moon class="h-6 w-6 text-gray-800" />
+                        <x-bx-moon class="h-6 w-6 text-gray-800" />
                     </button>
                 </div>
 
@@ -33,10 +33,10 @@
                 <div class="-mr-2 flex items-center sm:hidden">
                     <button x-on:click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md focus:bg-gray-200 dark:focus:bg-gray-700 transition duration-150 ease-in-out">
                         <div :class="open ? 'hidden' : 'inline-flex'">
-                            <x-carbon-menu class="h-6 w-6" />
+                            <x-bx-menu class="h-6 w-6" />
                         </div>
                         <div :class="! open ? 'hidden' : 'inline-flex' ">
-                            <x-carbon-close class="h-6 w-6" />
+                            <x-bx-x class="h-6 w-6" />
                         </div>
                     </button>
                 </div>
@@ -51,10 +51,7 @@
                                     <img class="rounded-full w-8 h-8 text-gray-600" src="{{ image_profile() }}" alt="{{ current_user()->name }}">
                                 </div>
                                 <div :class="open ? 'transform rotate-180' : 'transform rotate-0'">
-                                    <x-carbon-chevron-up class="fill-current h-4 w-4" />
-                                    {{-- <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                    </svg> --}}
+                                    <x-bx-chevron-up class="fill-current h-4 w-4" />
                                 </div>
                             </button>
                         </x-slot>
@@ -69,8 +66,17 @@
                                     <div class="font-medium text-sm text-gray-500 dark:text-gray-400">{{ current_user()->email }}</div>
                                 </div>
                             </div>
+                            <x-responsive-nav-link :href="route('profile')" :active="request()->routeIs('profile')">
+                                <div class="flex justify-between items-center">
+                                    <span>{{ __('Profile User') }}</span>
+                                    <x-bx-user-pin class="w-5 h-5" />
+                                </div>
+                            </x-responsive-nav-link>
                             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                                {{ __('Dashboard') }}
+                                <div class="flex justify-between items-center">
+                                    <span>{{ __('Dashboard') }}</span>
+                                    <x-bx-layout class="w-5 h-5" />
+                                </div>
                             </x-responsive-nav-link>
                             <hr class="border border-gray-600 w-50">
                             <form method="POST" action="{{ route('logout') }}">

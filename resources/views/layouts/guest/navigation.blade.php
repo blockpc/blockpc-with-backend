@@ -22,10 +22,10 @@
             <div class="flex space-x-4">
                 <div class="px-2 h-16 flex">
                     <button type="button" x-on:click="mode=false" x-show="mode" class="setMode" id="sun">
-                        <x-carbon-sun class="h-5 w-5 text-yellow-300" />
+                        <x-bx-sun class="h-5 w-5 text-yellow-300" />
                     </button>
                     <button type="button" x-on:click="mode=true" x-show="!mode" class="setMode" id="dark">
-                        <x-carbon-moon class="h-6 w-6 text-gray-800" />
+                        <x-bx-moon class="h-6 w-6 text-gray-800" />
                     </button>
                 </div>
 
@@ -33,10 +33,10 @@
                 <div class="-mr-2 flex items-center sm:hidden">
                     <button x-on:click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md focus:bg-gray-200 dark:focus:bg-gray-700 transition duration-150 ease-in-out">
                         <div :class="open ? 'hidden' : 'inline-flex'">
-                            <x-carbon-menu class="h-6 w-6" />
+                            <x-bx-menu class="h-6 w-6" />
                         </div>
                         <div :class="! open ? 'hidden' : 'inline-flex' ">
-                            <x-carbon-close class="h-6 w-6" />
+                            <x-bx-x class="h-6 w-6" />
                         </div>
                     </button>
                 </div>

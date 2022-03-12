@@ -8,10 +8,10 @@
         {{-- mobile menu button --}}
         <button class="h-16 mobile-menu-button p-4" x-on:click="sidebar = !sidebar">
             <div :class="sidebar ? 'hidden' : 'inline-flex'">
-                <x-carbon-menu class="h-6 w-6" />
+                <x-bx-menu class="h-6 w-6" />
             </div>
             <div :class="! sidebar ? 'hidden' : 'inline-flex' ">
-                <x-carbon-close class="h-6 w-6" />
+                <x-bx-x class="h-6 w-6" />
             </div>
         </button>
     </div>
@@ -19,10 +19,10 @@
         {{-- dark mode button --}}
         <div class="h-16 flex">
             <button type="button" x-on:click="mode=false" x-show="mode" class="setMode" id="sun">
-                <x-carbon-sun class="h-5 w-5 text-yellow-300" />
+                <x-bx-sun class="h-5 w-5 text-yellow-300" />
             </button>
             <button type="button" x-on:click="mode=true" x-show="!mode" class="setMode" id="dark">
-                <x-carbon-moon class="h-6 w-6 text-gray-800" />
+                <x-bx-moon class="h-6 w-6 text-gray-800" />
             </button>
         </div>
         {{-- Responsive User Options --}}
@@ -33,7 +33,7 @@
                         <img class="rounded-full w-8 h-8 text-gray-600" src="{{ image_profile() }}" alt="{{ current_user()->profile->fullname }}">
                     </div>
                     <div :class="open ? 'transform rotate-180' : 'transform rotate-0'">
-                        <x-carbon-chevron-up class="fill-current h-4 w-4" />
+                        <x-bx-chevron-up class="fill-current h-4 w-4" />
                     </div>
                 </button>
             </x-slot>
@@ -50,7 +50,7 @@
                 <x-sidebar-link :href="route('profile')" :active="request()->routeIs('profile')">
                     <div class="flex justify-between items-center">
                         <span>{{ __('Profile User') }}</span>
-                        <x-carbon-user-profile class="w-5 h-5" />
+                        <x-bx-user-pin class="w-5 h-5" />
                     </div>
                 </x-sidebar-link>
                 <hr class="border border-gray-200 dark:border-gray-600">

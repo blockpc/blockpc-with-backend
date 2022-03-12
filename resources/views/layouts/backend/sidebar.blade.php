@@ -8,7 +8,7 @@ x-transition:leave-end="opacity-0">
     {{-- menu sidebar --}}
     <x-sidebar-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
         <div class="flex space-x-2 items-center">
-            <x-carbon-dashboard class="w-5 h-5 fill-current" />
+            <x-bx-layout class="w-5 h-5 fill-current" />
             <span>{{__('Dashboard')}}</span>
         </div>
     </x-sidebar-link>
@@ -17,7 +17,7 @@ x-transition:leave-end="opacity-0">
     @if ( current_user()->can('user list') )
     <x-sidebar-link :href="route('users')" :active="request()->routeIs('users')">
         <div class="flex space-x-2 items-center">
-            <x-carbon-user-multiple class="w-5 h-5" />
+            <x-heroicon-s-users class="w-5 h-5" />
             <span>{{__('Users')}}</span>
         </div>
     </x-sidebar-link>
@@ -26,7 +26,7 @@ x-transition:leave-end="opacity-0">
     @if ( current_user()->can('role list') )
     <x-sidebar-link :href="route('roles.index')" :active="request()->routeIs('roles.index')">
         <div class="flex space-x-2 items-center">
-            <x-carbon-user-certification class="w-5 h-5" />
+            <x-bx-shield class="w-5 h-5" />
             <span>{{__('Roles')}}</span>
         </div>
     </x-sidebar-link>
@@ -35,7 +35,7 @@ x-transition:leave-end="opacity-0">
     @if ( current_user()->can('permission list') )
     <x-sidebar-link :href="route('permissions.index')" :active="request()->routeIs('permissions.index')">
         <div class="flex space-x-2 items-center">
-            <x-carbon-tag-group class="w-5 h-5" />
+            <x-bx-label class="w-5 h-5" />
             <span>{{__('Permissions')}}</span>
         </div>
     </x-sidebar-link>
