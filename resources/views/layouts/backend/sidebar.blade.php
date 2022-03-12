@@ -13,6 +13,26 @@ x-transition:leave-end="opacity-0">
         </div>
     </x-sidebar-link>
     <hr class="border border-gray-200 dark:border-gray-600 mx-2">
+    <x-sidebar-dropdown :active="request()->routeIs('menus.*')">
+        <x-slot name="trigger">
+            <div class="flex space-x-2 items-center">
+                <x-bx-code class="w-5 h-5" />
+                <span>{{__('Mas Menus')}}</span>
+            </div>
+        </x-slot>
+        <x-slot name="content">
+            <x-sidebar-submenu href="{{ route('menus.one') }}">
+                {{__('Menu Uno')}}
+            </x-sidebar-submenu>
+            <x-sidebar-submenu href="{{ route('menus.two') }}">
+                {{__('Menu Dos')}}
+            </x-sidebar-submenu>
+            <x-sidebar-submenu href="{{ route('menus.three') }}">
+                {{__('Menu Tres')}}
+            </x-sidebar-submenu>
+        </x-slot>
+    </x-sidebar-dropdown>
+    <hr class="border border-gray-200 dark:border-gray-600 mx-2">
     {{-- User List --}}
     @if ( current_user()->can('user list') )
     <x-sidebar-link :href="route('users')" :active="request()->routeIs('users')">

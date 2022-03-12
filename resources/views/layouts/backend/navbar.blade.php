@@ -26,15 +26,10 @@
             </button>
         </div>
         {{-- Responsive User Options --}}
-        <x-dropdown class="" align="right" width="64">
+        <x-dropdown align="right" width="64">
             <x-slot name="trigger">
-                <button class="flex items-center space-x-2 text-sm font-medium text-dark transition duration-150 ease-in-out">
-                    <div class="">
-                        <img class="rounded-full w-8 h-8 text-gray-600" src="{{ image_profile() }}" alt="{{ current_user()->profile->fullname }}">
-                    </div>
-                    <div :class="open ? 'transform rotate-180' : 'transform rotate-0'">
-                        <x-bx-chevron-up class="fill-current h-4 w-4" />
-                    </div>
+                <button class="flex items-center space-x-2 text-sm font-medium text-dark transition duration-150 ease-in-out mx-2">
+                    <img class="rounded-full w-8 h-8 text-gray-600" src="{{ image_profile() }}" alt="{{ current_user()->profile->fullname }}">
                 </button>
             </x-slot>
             <x-slot name="content">

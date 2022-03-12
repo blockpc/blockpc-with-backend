@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DropdownController;
 use App\Http\Controllers\System\DashboardController;
 use App\Http\Controllers\System\PermissionsController;
 use App\Http\Controllers\System\ProfileController;
@@ -30,5 +31,15 @@ Route::middleware([
 
         Route::get('/permisos', PermissionsController::class)
             ->name('permissions.index');
+
+        /** Dorpdowns */
+        Route::get('/menu-one', [DropdownController::class, 'menu_one'])
+            ->name('menus.one');
+
+        Route::get('/menu-two', [DropdownController::class, 'menu_two'])
+            ->name('menus.two');
+
+        Route::get('/menu-three', [DropdownController::class, 'menu_three'])
+            ->name('menus.three');
     });
 });

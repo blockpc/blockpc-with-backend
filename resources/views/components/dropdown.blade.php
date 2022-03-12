@@ -1,4 +1,4 @@
-@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 nav-dark'])
+@props(['align' => 'right', 'width' => '48'])
 
 @php
 switch ($align) {
@@ -25,8 +25,11 @@ switch ($width) {
 @endphp
 
 <div class="relative" x-data="{ open: false }" @click.away="open = false" @close.stop="open = false">
-    <div @click="open = ! open">
+    <div class="flex justify-between items-center" x-on:click="open = ! open">
         {{ $trigger }}
+        <div :class="open ? 'transform rotate-180' : 'transform rotate-0'">
+            <x-bx-chevron-up class="fill-current h-4 w-4" />
+        </div>
     </div>
 
     <div x-show="open"
@@ -39,7 +42,7 @@ switch ($width) {
             class="absolute z-20 mt-2 {{ $width }} rounded-md shadow-lg {{ $alignmentClasses }}"
             style="display: none;"
             @click="open = false">
-        <div class="rounded-md ring-1 ring-black ring-opacity-5 {{ $contentClasses }}">
+        <div class="p-1 nav-dark">
             {{ $content }}
         </div>
     </div>
