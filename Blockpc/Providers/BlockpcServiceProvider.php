@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
 
@@ -61,5 +62,9 @@ final class BlockpcServiceProvider extends ServiceProvider
                         ? $rule->mixedCase()->uncompromised()
                         : $rule;
         });
+
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'blockpc');
+
+        Blade::componentNamespace('Blockpc\\Components', 'blockpc');
     }
 }

@@ -1,0 +1,3 @@
+<div>
+    componente anonymous
+</div>
