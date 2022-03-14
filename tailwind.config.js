@@ -16,9 +16,15 @@ module.exports = {
                 roboto: ['Roboto', ...defaultTheme.fontFamily.sans],
             },
             height: theme => ({
-                "sidebar": "calc(100vh - 64px)",
+                "sidebar": "calc(100vh - 80px)",
+                "sidebar-sm": "calc(100vh - 48px)",
+                "menu": "calc(100vh - 32px)",
             }),
         },
+    },
+    
+    variants: {
+        scrollbar: ['dark']
     },
 
     plugins: [

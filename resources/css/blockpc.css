@@ -1,15 +1,40 @@
 @layer components {
+    /* new classes */
+    .sidebar {}
+    .logo-details {}
+    .logo-name {}
+    .nav-links {}
+    .link-name {
+        @apply text-sm;
+    }
+    .mobil-link-name {
+        @apply px-4 py-2 w-48 items-center space-x-2 rounded-r-md 
+        bg-gray-200 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-600
+        border border-l-0 border-white dark:border-gray-800 
+        transition-all duration-200 
+        hidden group-hover:block group-hover:md:hidden
+        group-hover:absolute group-hover:left-full group-hover:top-0 group-hover:-mt-[1px];
+    }
+    .sub-menu {
+        @apply w-48 rounded-r-md 
+        bg-gray-200 dark:bg-gray-800 
+        border border-l-0 border-white dark:border-gray-800
+        hidden group-hover:block
+        group-hover:absolute group-hover:left-full group-hover:top-0 group-hover:-mt-[1px];
+    }
+
+    /* old classes */
     .text-dark {
         @apply text-gray-700 dark:text-gray-100;
     }
     .bg-dark {
-        @apply bg-gray-100 dark:bg-gray-700;
+        @apply bg-gray-200 dark:bg-gray-700;
     }
     .bg-dark-light {
-        @apply bg-gray-300 dark:bg-gray-600;
+        @apply bg-gray-100 dark:bg-gray-600;
     }
     .nav-dark {
-        @apply bg-white dark:bg-gray-700 border-b border-gray-100 dark:border-gray-600;
+        @apply bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-600;
     }
     .content {
         @apply max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8;
