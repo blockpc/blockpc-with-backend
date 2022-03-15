@@ -29,16 +29,16 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body class="font-roboto antialiased text-dark bg-dark overflow-hidden" x-data="{mode: localStorage.theme == 'dark'}">
-        <div class="m-0 md:m-4 border border-gray-300 dark:border-gray-800 rounded-md flex overflow-hidden">
-            <div class="h-full md:h-menu nav-dark w-16 md:w-64">
+        <div class="m-0 lg:m-4 border border-gray-300 dark:border-gray-800 rounded-md flex overflow-hidden">
+            <div class="h-full lg:h-menu nav-dark w-16 lg:w-64">
                 <div class="logo-details flex items-center space-x-2 h-12">
                     <span class="w-16">
-                        <x-application-logo class="h-10 w-10 mx-auto" />
+                        <x-application-logo class="h-8 w-8 mx-auto" />
                     </span>
-                    <span class="logo-name text-2xl font-bold w-48 hidden md:block">Blockpc</span>
+                    <span class="logo-name text-2xl font-bold w-48 hidden lg:block">Blockpc</span>
                 </div>
-                <div class="nav-links h-sidebar-sm md:h-sidebar flex flex-col justify-between">
-                    <div class="flex flex-col justify-between h-sidebar-sm md:h-sidebar">
+                <div class="nav-links h-sidebar-sm lg:h-sidebar flex flex-col justify-between">
+                    <div class="flex flex-col justify-between h-sidebar-sm lg:h-sidebar">
                         <div class="flex-1 flex-col space-y-2 my-2 z-10">
                             {{--overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400--}}
                             <x-links.sidebar name="Dashboard" route="{{ route('dashboard') }}">
@@ -115,7 +115,7 @@
                                 <span class="w-16">
                                     <x-bx-log-out class="h-5 w-5 mx-auto text-red-500" />
                                 </span>
-                                <span class="link-name w-48 hidden md:block">Logout</span>
+                                <span class="link-name w-48 hidden lg:block">Logout</span>
                             </a>
                         </form>
                     </div>
@@ -123,13 +123,7 @@
             </div>
             <div class="relative flex flex-col w-full">
                 <div class="h-12 flex justify-between items-center nav-dark px-2 py-1">
-                    <div class="flex items-center">
-                            {{-- <span class="logo-name w-48 text-2xl font-bold" :class="sidebar ? 'block md:hidden' : 'hidden md:block'">Blockpc</span>
-                            <button type="button" x-on:click="sidebar=!sidebar">
-                                <x-bx-menu class="w-5 h-5" x-show="!sidebar"></x-bx-menu>
-                                <x-bx-x class="w-5 h-5" x-show="sidebar"></x-bx-menu>
-                            </button> --}}
-                    </div>
+                    <div class="flex items-center"></div>
                     <div class="flex items-center space-x-2">
                         <button type="button" x-on:click="mode=false" x-show="mode" class="setMode" id="sun">
                             <x-bx-sun class="h-5 w-5 text-yellow-300" />
@@ -137,28 +131,42 @@
                         <button type="button" x-on:click="mode=true" x-show="!mode" class="setMode" id="dark">
                             <x-bx-moon class="h-6 w-6 text-gray-800" />
                         </button>
-                        <div class="profie-details inline-flex">
-                            <div class="flex items-center">
-                                <div class="w-16">
-                                    <img class="rounded-full h-8 w-8 mx-auto text-gray-600" src="{{ image_profile() }}" alt="{{ current_user()->profile->fullname }}">
+                        <x-dropdown align="right" width="64">
+                            <x-slot name="trigger">
+                                <button class="flex items-center space-x-2 text-sm font-medium text-dark transition duration-150 ease-in-out mx-2">
+                                    <img class="rounded-full w-8 h-8 text-gray-600" src="{{ image_profile() }}" alt="{{ current_user()->profile->fullname }}">
+                                </button>
+                            </x-slot>
+                            <x-slot name="content">
+                                <div class="flex items-center space-x-2 border-b-2 border-gray-200 dark:border-gray-600 p-2">
+                                    <div class="w-12">
+                                        <img class="w-12 h-12 mx-auto rounded-full text-gray-600" src="{{ image_profile() }}" alt="{{ current_user()->profile->fullname }}">
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-base text-gray-800 dark:text-gray-200">{{ current_user()->profile->fullname }}</div>
+                                        <div class="font-medium text-sm text-gray-500 dark:text-gray-400">{{ current_user()->cargo }}</div>
+                                    </div>
                                 </div>
-                                <div class="w-40 hidden md:block">
-                                    <div class="font-bold text-sm text-gray-800 dark:text-gray-200">{{ current_user()->profile->fullname }}</div>
-                                    <div class="font-medium text-xs text-gray-500 dark:text-gray-300">{{ current_user()->cargo }}</div>
-                                </div>
-                                <form class="w-8 relative hover:bg-red-100 hover:text-red-500 transition-all duration-200" method="POST" action="{{ route('logout') }}">
+                                <x-sidebar-link :href="route('profile')" :active="request()->routeIs('profile')">
+                                    <div class="flex justify-between items-center">
+                                        <span>{{ __('Profile User') }}</span>
+                                        <x-bx-user-pin class="w-5 h-5" />
+                                    </div>
+                                </x-sidebar-link>
+                                <hr class="border border-gray-200 dark:border-gray-600">
+                                <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <a class="flex items-center py-2" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
-                                        <span class="w-16">
-                                            <x-bx-log-out class="h-5 w-5 mx-auto text-red-500" />
-                                        </span>
-                                    </a>
+                                    <x-logout-link :href="route('logout')"
+                                            onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </x-logout-link>
                                 </form>
-                            </div>
-                        </div>
+                            </x-slot>
+                        </x-dropdown>
                     </div>
                 </div>
-                <div class="h-sidebar-sm md:h-sidebar p-2 md:p-4 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400">
+                <div class="h-sidebar-sm lg:h-sidebar p-2 lg:p-4 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400">
                     @yield('content')
                 </div>
             </div>
