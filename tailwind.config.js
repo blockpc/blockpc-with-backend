@@ -16,8 +16,9 @@ module.exports = {
                 roboto: ['Roboto', ...defaultTheme.fontFamily.sans],
             },
             height: theme => ({
-                "sidebar": "calc(100vh - 64px)",
-            }),
+                "layout": "calc(100vh - 32px)",
+                "sidebar": "calc(100vh - 48px)",
+            })
         },
     },
 
