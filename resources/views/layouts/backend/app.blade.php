@@ -62,6 +62,7 @@
                                     </x-links.dropdown-link>
                                 </x-slot>
                             </x-links.dropdown-sidebar>
+                            <x-links.hr />
                             <x-links.sidebar name="Posts" route="#">
                                 <x-slot name="icon">
                                     <x-bx-book-alt class="h-5 w-5 mx-auto" />
